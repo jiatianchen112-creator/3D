@@ -21,12 +21,11 @@ const sites = [
 ];
 
 const colors = [
+  '#00d9ff', // bright cyan
   '#00e5ff', // cyan
-  '#ff007f', // pink
-  '#a900ff', // purple
-  '#00ff33', // green
-  '#ffd500', // yellow
-  '#ff5e00', // orange
+  '#00f0ff', // light cyan
+  '#00c9ff', // deeper cyan
+  '#00bfff', // deep sky blue
 ];
 
 export const particlesData: ParticleData[] = Array.from({ length: 150 }).map((_, i) => {

@@ -57,18 +57,16 @@ export function CustomControls() {
     const right = new THREE.Vector3();
 
     camera.getWorldDirection(direction);
-    
     right.crossVectors(direction, camera.up).normalize();
 
-    // WASD Movement logic mapped to the camera's perspective
+    // First-person view movement (relative to camera orientation)
     if (keys.current.w) velocity.add(direction);
     if (keys.current.s) velocity.sub(direction);
     if (keys.current.d) velocity.add(right);
     if (keys.current.a) velocity.sub(right);
 
     if (velocity.lengthSq() > 0) {
-      velocity.normalize().multiplyScalar(30 * delta); // Base speed
-      
+      velocity.normalize().multiplyScalar(30 * delta);
       camera.position.add(velocity);
       controlsRef.current.target.add(velocity);
     }
@@ -80,7 +78,9 @@ export function CustomControls() {
       enableDamping
       dampingFactor={0.05}
       makeDefault
-      enablePan={false} // Disable mouse panning, rely on keyboard WASD
+      enablePan={false}
+      minPolarAngle={Math.PI / 2}
+      maxPolarAngle={Math.PI / 2}
     />
   );
 }

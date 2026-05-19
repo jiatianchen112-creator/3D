@@ -28,22 +28,22 @@ function Particle({ data }: { data: ParticleData }) {
         onPointerOver={(e) => { e.stopPropagation(); setHovered(true); }}
         onPointerOut={() => setHovered(false)}
       >
-        <sphereGeometry args={[hovered ? 0.8 : 0.4, 32, 32]} />
+        <boxGeometry args={[hovered ? 0.6 : 0.3, hovered ? 0.6 : 0.3, hovered ? 0.6 : 0.3]} />
         <meshStandardMaterial
           color={data.color}
           emissive={data.color}
-          emissiveIntensity={hovered ? 3 : 1.5}
+          emissiveIntensity={hovered ? 6 : 4}
           toneMapped={false}
         />
-        {/* Glow effect */}
-        <mesh scale={hovered ? 1.5 : 1.2}>
-          <sphereGeometry args={[0.8, 32, 32]} />
+        {/* Single glow layer */}
+        <mesh scale={hovered ? 3 : 2}>
+          <boxGeometry args={[0.6, 0.6, 0.6]} />
           <meshStandardMaterial
             color={data.color}
             emissive={data.color}
-            emissiveIntensity={hovered ? 2 : 0.5}
+            emissiveIntensity={hovered ? 3 : 1.5}
             transparent
-            opacity={0.3}
+            opacity={hovered ? 0.4 : 0.2}
             depthWrite={false}
           />
         </mesh>

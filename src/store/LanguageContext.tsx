@@ -30,8 +30,8 @@ const translations = {
     resetView: 'Reset View',
   },
   zh: {
-    title: '星际',
-    subtitle: '枢纽',
+    title: '声成',
+    subtitle: '回响',
     desc: '3D 交互式展览空间',
     navCtrl: '导航控制',
     wasdKeys: 'WASD 键',
